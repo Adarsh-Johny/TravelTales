@@ -309,3 +309,69 @@ body {
         }
     }
 }
+
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        ul[nz-menu] {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .left-side {
+            flex-direction: column;
+            align-items: center;
+
+            .logo-img-wrap {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .destination-section {
+        flex-direction: column !important;
+        padding: 20px;
+
+        .image-container,
+        .text-container {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .text-container h2,
+        .text-container p,
+        .text-container ul {
+            text-align: center;
+        }
+    }
+
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+
+        .contact-info,
+        .contact-logo {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .contact-logo img {
+            max-width: 150px;
+            margin: 0 auto;
+        }
+    }
+
+    .scroll-down-btn {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+}
