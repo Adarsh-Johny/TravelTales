@@ -1,0 +1,97 @@
+<div class="navbar" id="home">
+    <div class="left-side">
+        <div class="logo-img-wrap">
+            <img src="assets/logo.png" alt="Travel Tales Logo" class="logo-img" />
+        </div>
+        <div class="logo-text"><strong>Travel Tales</strong></div>
+    </div>
+
+    <ul nz-menu nzMode="horizontal">
+        <li nz-menu-item><a (click)="scrollTo('india')">India</a></li>
+        <li nz-menu-item><a (click)="scrollTo('abroad')">Abroad</a></li>
+        <li nz-menu-item><a (click)="scrollTo('contact')">Contact</a></li>
+    </ul>
+</div>
+
+<div class="destinations-container">
+
+    <section class="destination-section intro" id="intro">
+        <div class="intro-overlay">
+            <h1>Are you bored at home? Let’s go on a trip.</h1>
+            <p>Discover magical places around the world and across India. Curated experiences for every wanderer.</p>
+            <button class="scroll-down-btn" (click)="scrollTo('india')">↓ Explore Destinations</button>
+        </div>
+    </section>
+
+    <section id="india">
+        <ng-container *ngFor="let place of indiaDestinations; let i = index">
+            <div class="destination-section" [ngClass]="{ reverse: i % 2 !== 0 }">
+                <!-- Image Section with Hover Effect -->
+                <div class="image-container">
+                    <div class="image-container">
+                        <img [src]="hoveredImageMap[i] || place.image" [alt]="place.name"
+                            (mouseenter)="onHover(i, place.hoverImage)" (mouseleave)="onLeave(i)" />
+
+                    </div>
+
+                </div>
+                <div class="text-container">
+                    <h2>{{ place.name }}</h2>
+                    <p class="details">Cost per person: {{ place.cost }}</p>
+                    <ul>
+                        <li *ngFor="let item of place.includes">{{ item }}</li>
+                    </ul>
+                </div>
+            </div>
+        </ng-container>
+    </section>
+
+    <section id="abroad">
+        <ng-container *ngFor="let place of abroadDestinations; let i = index">
+            <div class="destination-section" [ngClass]="{ reverse: i % 2 == 0 }">
+                <!-- Image Section with Hover Effect -->
+                <div class="image-container">
+                    <div class="image-container">
+                        <img [src]="hoveredImageMap[i] || place.image" [alt]="place.name"
+                            (mouseenter)="onHover(i, place.hoverImage)" (mouseleave)="onLeave(i)" />
+
+                    </div>
+                </div>
+                <div class="text-container">
+                    <h1 class="text-header">{{ place.name }}</h1>
+                    <p class="details">Cost per person: {{ place.cost }}</p>
+                    <ul>
+                        <li *ngFor="let item of place.includes">{{ item }}</li>
+                    </ul>
+                </div>
+            </div>
+        </ng-container>
+    </section>
+
+    <section class="contact-section destination-section" id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <p><strong>Martin Mathew</strong></p>
+                <p>Business Development Manager</p>
+                <p><i class="fa fa-phone"></i> +91 6238693615</p>
+                <p><i class="fa fa-phone"></i> +91 9496357452</p>
+                <p>
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:traveltales.tnt&#64;gmail.com">traveltales.tnt&#64;gmail.com</a>
+                </p>
+
+                <p><i class="fa fa-map-marker"></i>
+                    3rd Floor, KK Trade Centre,<br>
+                    New Bus Stand Building,<br>
+                    Near Abroad Angels,<br>
+                    Office No: 1206 A 308 Block - 1
+                </p>
+            </div>
+            <div class="contact-logo">
+                <img src="assets/logo.png" alt="Travel Tales Logo" />
+            </div>
+        </div>
+
+    </section>
+</div>
